@@ -29,26 +29,30 @@ public class MainActivity extends AppCompatActivity {
         textView=findViewById(R.id.drinkValue_Textview);
         SeekBar seekBar = findViewById(R.id.drink_seekBar);
 
+        final ImageView drinkgimg = (ImageView) findViewById(R.id.drinkIcon1_imageView);
+
+        drinkgimg.setColorFilter(Color.parseColor("#509def"));
+
         seekBar.setRotation(270.0f); //세로
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { //seekbar 리스너
-            ImageView drinkgimg = (ImageView) findViewById(R.id.drinkIcon1_imageView);
+
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int drinkValue, boolean fromUser) {
                 if(drinkValue>0) drinkgimg.setColorFilter(Color.parseColor("#509def"));
-                //else if(drinkValue>30) drinkgimg.setColorFilter(Color.parseColor("#ef5350")); //*
+                else if(drinkValue>30) drinkgimg.setColorFilter(Color.parseColor("#ef5350")); //*
                 textView.setText(drinkValue+"ml");
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                //drinkgimg.setColorFilter(Color.parseColor("#509def"));
+                drinkgimg.setColorFilter(Color.parseColor("#509def"));
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                //drinkgimg.setColorFilter(null);
-                //drinkgimg.setColorFilter(Color.parseColor("#509def"));
+                drinkgimg.setColorFilter(null);
+                drinkgimg.setColorFilter(Color.parseColor("#509def"));
             }
         });
     }
