@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        int nnn;
+
         textView=findViewById(R.id.drinkValue_Textview);
         SeekBar seekBar = findViewById(R.id.drink_seekBar);
 
