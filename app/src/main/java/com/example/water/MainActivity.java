@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-               //drinkgimg.setColorFilter(Color.parseColor("#ef5350"));
+                //drinkgimg.setColorFilter(Color.parseColor("#ef5350"));
                 drinkgimg.setColorFilter(colorBasic);
             }
         });
