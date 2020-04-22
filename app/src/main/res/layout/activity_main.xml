@@ -6,15 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/drinkIcon_cup"
+        android:layout_width="109dp"
+        android:layout_height="138dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.38"
+        app:srcCompat="@drawable/water_cup" />
+
     <TextView
-        android:id="@+id/drinkValue_Textview"
+        android:id="@+id/seekbarValue_Textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="#ef5350"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.199"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.71" />
@@ -23,8 +35,8 @@
         android:id="@+id/drink_seekBar"
         android:layout_width="224dp"
         android:layout_height="33dp"
-        android:max="500"
-        android:progress="0"
+        android:max="10"
+        android:progress="1"
         android:progressDrawable="@drawable/seekbar_seekbar"
         android:rotation="270"
         android:scrollbarSize="4dp"
@@ -59,5 +71,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.38"
         app:srcCompat="@drawable/icon_drink1" />
+
+    <ImageView
+        android:id="@+id/drinkIcon_pet"
+        android:layout_width="75dp"
+        android:layout_height="201dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32"
+        app:srcCompat="@drawable/water_pet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

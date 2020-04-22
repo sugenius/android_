@@ -26,29 +26,63 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView=findViewById(R.id.drinkValue_Textview);
+        final int colorBasic = getResources().getColor(R.color.colorBasic); String colorBasicString = Integer.toString(colorBasic); //#ef5350
+        final int colorWater = getResources().getColor(R.color.colorWater); String colorWaterString = Integer.toString(colorWater); //#509def
+
+        textView=findViewById(R.id.seekbarValue_Textview);
         SeekBar seekBar = findViewById(R.id.drink_seekBar);
 
-        seekBar.setRotation(270.0f); //세로
+        //String color = findViewById(R.color.colorBasic);
+
+        final ImageView drinkgimg = (ImageView) findViewById(R.id.drinkIcon1_imageView); //물방울 모양
+
+        final Drawable water_cup = ((ImageView)findViewById(R.id.drinkIcon_cup)).getDrawable();
+        water_cup.setAlpha(0); //투명
+        final Drawable water_pet = ((ImageView)findViewById(R.id.drinkIcon_pet)).getDrawable();
+        water_pet.setAlpha(0); //투명
+
+
+        //drinkgimg.setColorFilter(Color.parseColor("#ef5350"));
+        drinkgimg.setColorFilter(colorBasic);
+
+        seekBar.setRotation(270.0f); //seekbar 세로
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { //seekbar 리스너
-            ImageView drinkgimg = (ImageView) findViewById(R.id.drinkIcon1_imageView);
+
 
             @Override
-            public void onProgressChanged(SeekBar seekBar, int drinkValue, boolean fromUser) {
-                if(drinkValue>0) drinkgimg.setColorFilter(Color.parseColor("#509def"));
-                //else if(drinkValue>30) drinkgimg.setColorFilter(Color.parseColor("#ef5350")); //*
-                textView.setText(drinkValue+"ml");
+            public void onProgressChanged(SeekBar seekBar, int seekbarValue, boolean fromUser) {
+                int drinkValue = seekbarValue*100; //단위 조절
+                textView.setText(drinkValue +"ml");
+
+                if(drinkValue>300 && drinkValue<500) {
+                    drinkgimg.setAlpha(0);
+                    water_cup.setAlpha(255);
+                    water_pet.setAlpha(0);
+                }
+                else if(drinkValue>500) {
+                    drinkgimg.setAlpha(0);
+                    water_cup.setAlpha(0);
+                    water_pet.setAlpha(255);
+                }
+                else if(drinkValue<300) {
+                    drinkgimg.setAlpha(255);
+                    water_cup.setAlpha(0);
+                    water_pet.setAlpha(0);
+                }
+
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                //drinkgimg.setColorFilter(Color.parseColor("#509def"));
+                drinkgimg.setColorFilter(colorWater); //
+
+
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                //drinkgimg.setColorFilter(null);
-                //drinkgimg.setColorFilter(Color.parseColor("#509def"));
+               //drinkgimg.setColorFilter(Color.parseColor("#ef5350"));
+                drinkgimg.setColorFilter(colorBasic);
             }
         });
     }
